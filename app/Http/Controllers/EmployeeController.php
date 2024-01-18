@@ -88,7 +88,7 @@ class EmployeeController extends Controller
         ]);
 
         if ($r->hasFile('foto')) {
-            $path = $r->file('foto')->store('upload');
+            $path = $r->file('foto')->storeAs('upload', time() . '-' . $nomorpegawai . '.' . $r->file('foto')->extension());
         } else {
             $path = '';
         }
